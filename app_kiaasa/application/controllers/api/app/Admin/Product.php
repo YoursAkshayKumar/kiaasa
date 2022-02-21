@@ -72,6 +72,13 @@ class Product extends REST_Controller {
                 
             }
 
+            if($this->input->post('subcategory_id')){
+                
+                $this->db->where('p.subcategory_id', $this->input->post('subcategory_id'));
+
+                
+            }
+
 
 
 
