@@ -92,6 +92,8 @@ $rootLayouts = $root.'resources/web/';
 define('ADMIN', $rootAdmin);
 define('WEB', $rootLayouts);
 define('UPLOAD', $root.'upload/');
+define("IMAGE_URL", "https://web.kiaasa.com/images/pos_product_images");
+
 
 
 define('RAZOR_KEY','rzp_test_73OrCsW3Z1K5A4'); // test
