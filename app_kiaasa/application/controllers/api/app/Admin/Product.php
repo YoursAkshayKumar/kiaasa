@@ -68,22 +68,27 @@ class Product extends REST_Controller {
             $this->db->from('pos_product_master as p');
 
             if($this->input->post('store_id')){
-                $productIds =  $this->product_inventory_m->getProductByStoreId($this->input->post('store_id'), $limit);
+                $productIds =  $this->product_inventory_m->getProductByStoreId($this->input->post('store_id'));
                 $this->db->where_in('p.id', $productIds);
             }
             
             if($this->input->post('category_id')){
                 $this->db->where('p.category_id', $this->input->post('category_id'));
+                
             }
 
             if($this->input->post('min_price')){
                 $this->db->where('p.base_price >=', $min_price);
+                
             }
 
             if($this->input->post('max_price')){
                 $this->db->where('p.sale_price <=', $max_price);
+                
             }
 
+            
+            
             $this->db->limit($limit,$offset);
             $this->db->order_by('p.id DESC');    
             $products = $this->db->get()->result_array();

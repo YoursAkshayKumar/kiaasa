@@ -13,8 +13,8 @@ class Product_inventory_m extends MY_Model {
 	}
 
 
-    public function getProductByStoreId($store_id, $limit){
-        $sql = "SELECT `product_master_id`  FROM `pos_product_master_inventory` WHERE store_id = $store_id LIMIT $limit";
+    public function getProductByStoreId($store_id){
+        $sql = "SELECT `product_master_id`  FROM `pos_product_master_inventory` WHERE store_id = $store_id";
         $query = $this->db->query($sql);
         $store = $query->result();
 
