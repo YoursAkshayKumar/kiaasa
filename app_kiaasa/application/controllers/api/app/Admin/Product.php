@@ -17,6 +17,8 @@ class Product extends REST_Controller {
         }
         else{
             $limit = $this->input->post('limit');
+            $min_price = $this->input->post('min_price');
+            $max_price = $this->input->post('max_price');
 
 
             // $this->db->select(
@@ -53,6 +55,8 @@ class Product extends REST_Controller {
             $this->db->select(
                 'p.id,
                  p.product_name,
+                 p.base_price,
+                 p.sale_price,
                  p.category_id
                 '
             );
@@ -68,9 +72,13 @@ class Product extends REST_Controller {
                 $this->db->where('p.category_id', $this->input->post('category_id'));
             }
 
+            if($this->input->post('min_price')){
+                $this->db->where('p.base_price >=', $min_price);
+            }
 
-
-
+            if($this->input->post('max_price')){
+                $this->db->where('p.sale_price <=', $max_price);
+            }
 
             $this->db->limit($limit);
             $this->db->order_by('p.id DESC');    
