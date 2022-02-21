@@ -36,10 +36,10 @@ class Store_m extends MY_Model {
     }
 
 
-    public function getStores(){
+    public function getStores($limit,$offset){
         $this->db->select('*');
         $this->db->from('store');
- 
+        $this->db->limit($limit,$offset);
         $store = $this->db->get();
         return $store->result_array();
     }

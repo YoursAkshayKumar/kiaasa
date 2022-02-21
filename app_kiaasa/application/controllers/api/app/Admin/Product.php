@@ -10,12 +10,16 @@ class Product extends REST_Controller {
 
     
     public function getProduct_post() {
+
         $method = $this->_detect_method();
-        if (!$method == 'GET') {
+        if (!$method == 'POST') {
             $this->response(['status' => 400, 'messsage'=>'error', 'description' => 'Bad request.'], REST_Controller::HTTP_BAD_REQUEST);
             exit();
         }
         else{
+
+            
+            $offset = $this->input->post('offset');
             $limit = $this->input->post('limit');
             $min_price = $this->input->post('min_price');
             $max_price = $this->input->post('max_price');
@@ -80,7 +84,7 @@ class Product extends REST_Controller {
                 $this->db->where('p.sale_price <=', $max_price);
             }
 
-            $this->db->limit($limit);
+            $this->db->limit($limit,$offset);
             $this->db->order_by('p.id DESC');    
             $products = $this->db->get()->result_array();
 
@@ -89,16 +93,12 @@ class Product extends REST_Controller {
                 $products[$key]['product_img_url'] = $product_img;
             }
 
-    
-    
             if (empty($products)) {
                 $response = ['status' => 200, 'message' => 'success', 'description' => 'There is no product'];
             } else {
                 $response = ['status' => 200, 'message' => 'success', 'description' => 'Product fetch successfully.', 'data' => $products];
             }
     
-
-
             $this->response($response, REST_Controller::HTTP_OK);
             exit();
         }

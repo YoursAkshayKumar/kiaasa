@@ -17,9 +17,10 @@ class State_m extends MY_Model {
  
 
 
-    public function getStates(){
+    public function getStates($limit,$offset){
         $this->db->select('*');
         $this->db->from('state_list');
+        $this->db->limit($limit,$offset);
  
         $store = $this->db->get();
         return $store->result_array();

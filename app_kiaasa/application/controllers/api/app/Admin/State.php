@@ -10,12 +10,14 @@ class State extends REST_Controller {
 
 	public function getState_post() {
         $method = $this->_detect_method();
-        if (!$method == 'GET') {
+        if (!$method == 'POST') {
             $this->response(['status' => 400, 'messsage'=>'error', 'description' => 'Bad request.'], REST_Controller::HTTP_BAD_REQUEST);
             exit();
         }
         else{
-            $states = $this->state_m->getStates();
+            $offset = $this->input->post('offset');
+            $limit = $this->input->post('limit');
+            $states = $this->state_m->getStates($limit,$offset);
             if (!empty($states)) {
 
                     $newdata = array( 

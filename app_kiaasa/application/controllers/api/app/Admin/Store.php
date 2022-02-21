@@ -10,13 +10,14 @@ class Store extends REST_Controller {
 
 	public function getStore_post() {
         $method = $this->_detect_method();
-        if (!$method == 'GET') {
+        if (!$method == 'POST') {
             $this->response(['status' => 400, 'messsage'=>'error', 'description' => 'Bad request.'], REST_Controller::HTTP_BAD_REQUEST);
             exit();
         }
         else{
-
-            $stores = $this->store_m->getStores();
+            $offset = $this->input->post('offset');
+            $limit = $this->input->post('limit');
+            $stores = $this->store_m->getStores($limit,$offset);
             if (!empty($stores)) {
                
 
