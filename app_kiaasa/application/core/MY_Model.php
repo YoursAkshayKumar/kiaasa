@@ -5,8 +5,13 @@ class MY_Model extends Components
     public $tbl_class = 'classes';
     public $tbl_subjects = 'subjects';
     public $tbl_quiz_type = 'quiz_type';
+    public $db2;
     public function __construct(){
         parent::__construct();
+
+        $this->db2 = $this->load->database('database2', TRUE);  
+        
+
     }
 
     public function add($data, $id = NULL){

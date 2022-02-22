@@ -23,7 +23,7 @@ class Store extends REST_Controller {
 
                     $newdata = array( 
                         
-                        'states' => $stores
+                        'store' => $stores
                     );
                     $response = ['status' => 200, 'message' => 'success', 'description' => 'There is states list.', 'data'=>$newdata];
                 

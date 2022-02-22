@@ -110,7 +110,104 @@ class Product_m extends MY_Model {
     }
 
 
+    public function getAllProduct(){
 
+        $data = 
+
+
+
+        // $this->db->select(
+            //     'p.id,
+            //      p.product_name,
+            //      p.product_barcode,
+            //      p.product_sku,
+            //      p.vendor_product_sku,
+            //      p.category_id,
+            //      p.subcategory_id,
+            //      p.product_description,
+            //      p.base_price,
+            //      p.sale_price,
+            //      p.size_id,
+            //      p.color_id,
+            //      p.push_demand_booked,
+            //      p.sale_category,
+            //      p.story_id,
+            //      p.season_id,
+            //      p.product_type,
+            //      p.hsn_code,
+            //      p.user_id,
+            //      p.gst_inclusive,
+            //      p.custom_product,
+            //      p.arnon_product,
+            //      p.supplier_name,
+            //      p.product_rate_updated,
+            //      p.status,
+            //      p.is_deleted,
+            //      p.created_at
+            //     '
+            // );
+
+            $this->db->select(
+                'p.id,
+                 p.product_name,
+                 p.base_price,
+                 p.sale_price,
+                 p.category_id
+                '
+            );
+    
+            $this->db->from('pos_product_master as p');
+
+            if($this->input->post('store_id')){
+                $productIds =  $this->product_inventory_m->getProductByStoreId($this->input->post('store_id'));
+                $this->db->where_in('p.id', $productIds);
+            }
+            
+            if($this->input->post('category_id')){
+                $this->db->where('p.category_id', $this->input->post('category_id'));
+                
+            }
+
+            if($this->input->post('min_price')){
+                $this->db->where('p.base_price >=', $this->input->post('min_price'));
+                
+            }
+
+            if($this->input->post('color_id')){
+                $this->db->where('p.sale_price <=', $this->input->post('color_id'));
+            }
+
+            
+            
+            $this->db->limit($this->input->post('limit'), $this->input->post('offset'));
+            $this->db->order_by('p.id DESC');    
+            $products = $this->db->get()->result_array();
+
+            // $size = array(
+            //     0 => array(
+            //         "id" => "1",
+            //         "size" => "s",
+            //     ),
+            //     1 => array(
+            //         "id" => "1",
+            //         "size" => "m",
+            //     ),
+            //     2 => array(
+            //         "id" => "1",
+            //         "size" => "l",
+            //     ),
+            // );
+
+
+            foreach ($products as $key => $p) {
+                $product_img = $this->image_m->get_image_by_product_id($p['id']);
+                $products[$key]['product_img_url'] = $product_img;
+                // $products[$key]['size'] = $size;
+            }
+
+            return $products;
+
+    }   
 
 //end class
 

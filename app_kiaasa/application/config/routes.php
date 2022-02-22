@@ -16,6 +16,7 @@ $route['v1/updatebrand/(:any)'] = 'api/backend/brand/updatebrand/$1';
 $route['v1/delete-image'] = 'backend/media/deleteimage';
 
 // LOGIN
+
 $route['v1/userlogin'] = 'api/app/Auth/auth/userLogin';
 $route['v1/stafflogin'] = 'api/app/Auth/auth/staffLogin';
 $route['v1/customerlogin'] = 'api/app/Auth/auth/customerLogin';
@@ -66,8 +67,10 @@ $route['v1/getstore'] = 'api/app/Admin/store/getStore';
 // STATE
 $route['v1/getstate'] = 'api/app/Admin/state/getState';
 
-
-
+//USER
+$route['v1/users'] = 'auth/auth/users';
+$route['v1/userregistration'] = 'auth/auth/userRegistration';
+$route['v1/getuser'] = 'auth/auth/getUser';
 
 
 

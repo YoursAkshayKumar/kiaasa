@@ -11,6 +11,7 @@ class MY_Controller extends CI_Controller {
         parent::__construct();
 
         $this->load->model('datatable/data_table_factory_model');
+      
 
 
         // ADMIN MODELS
@@ -19,7 +20,8 @@ class MY_Controller extends CI_Controller {
             1=>'store_m',
             2=>'state_m',
             3=>'product_inventory_m',
-            4=>'image_m'
+            4=>'image_m',
+            5=>'auth_m'
 
         );
         

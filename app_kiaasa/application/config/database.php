@@ -83,6 +83,13 @@ if(ENVIRONMENT !== 'production') {
             'database' => 'kiaasa',
             'hostname' => '127.0.0.1'
     ];
+
+	$db2 = [
+		'username' => 'root',
+		'password' => '',
+		'database' => 'kiaasa_ecom',
+		'hostname' => '127.0.0.1'
+    ];
 } else {
     $db = [
             'username' => 'ekiaasar_kiaasa',
@@ -90,6 +97,14 @@ if(ENVIRONMENT !== 'production') {
             'database' => 'ekiaasar_kiaasa',
             'hostname' => 'localhost'
     ];
+
+	$db2 = [
+		'username' => 'ekiaasar_kiaasa',
+		'password' => 'kiaasa@2021#',
+		'database' => 'ekiaasar_kiaasa',
+		'hostname' => 'localhost'
+    ];
+
 }
 
 $db['default'] = array(
@@ -98,6 +113,28 @@ $db['default'] = array(
 	'username' => $db['username'],
 	'password' => $db['password'],
 	'database' => $db['database'],
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => (ENVIRONMENT !== ENVIRONMENT),
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);
+
+$db['database2'] = array(
+	'dsn'	=> '',
+	'hostname' => 'localhost',
+	'username' => $db2['username'],
+	'password' => $db2['password'],
+	'database' => $db2['database'],
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
