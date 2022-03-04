@@ -67,6 +67,10 @@ $route['v1/getstore'] = 'api/app/Admin/store/getStore';
 // STATE
 $route['v1/getstate'] = 'api/app/Admin/state/getState';
 
+
+// ORDER
+$route['v1/getorder'] = 'api/app/Admin/order/getOrder';
+
 //USER
 $route['v1/users'] = 'auth/auth/users';
 $route['v1/userregistration'] = 'auth/auth/userRegistration';

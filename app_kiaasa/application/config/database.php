@@ -78,10 +78,10 @@ $query_builder = TRUE;
 
 if(ENVIRONMENT !== 'production') {
     $db = [
-            'username' => 'root',
-            'password' => '',
-            'database' => 'kiaasa',
-            'hostname' => '127.0.0.1'
+		'username' => 'root',
+		'password' => '',
+		'database' => 'kiaasa',
+		'hostname' => '127.0.0.1'
     ];
 
 	$db2 = [
@@ -92,10 +92,10 @@ if(ENVIRONMENT !== 'production') {
     ];
 } else {
     $db = [
-            'username' => 'ekiaasar_kiaasa',
-            'password' => 'kiaasa@2021#',
-            'database' => 'ekiaasar_kiaasa',
-            'hostname' => 'localhost'
+		'username' => 'ekiaasar_kiaasa',
+		'password' => 'kiaasa@2021#',
+		'database' => 'ekiaasar_kiaasa',
+		'hostname' => 'localhost'
     ];
 
 	$db2 = [

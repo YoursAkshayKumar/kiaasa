@@ -1,0 +1,38 @@
+kiaasa webflow - 
+id (pos_customer_orders_id)
+order_no
+customer_id
+store_id
+payment_method
+reference_no
+store_user_id	
+total_price	
+total_items	  
+order_source
+customer_gst_no
+order_type
+order_status
+cancel_comments	
+cancel_date
+cancel_user_id
+status
+is_deleted
+created_at
+updated_at	
+voucher_amount
+voucher_comment	
+voucher_approver_id	
+coupon_item_id
+
+
+(pos_customer_orders_payments)
+id (pos_customer_orders_payments_id)
+order_id
+store_id
+payment_method
+payment_amount
+payment_received
+reference_number
+is_deleted
+created_at
+updated_at

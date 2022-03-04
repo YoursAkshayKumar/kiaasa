@@ -21,7 +21,8 @@ class MY_Controller extends CI_Controller {
             2=>'state_m',
             3=>'product_inventory_m',
             4=>'image_m',
-            5=>'auth_m'
+            5=>'auth_m',
+            6=>'order_m'
 
         );
         
