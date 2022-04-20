@@ -18,25 +18,16 @@ class Store extends REST_Controller {
             $offset = $this->input->post('offset');
             $limit = $this->input->post('limit');
             $stores = $this->store_m->getStores($limit,$offset);
-            if (!empty($stores)) {
-               
-
+            if (!empty($stores)) {          
                     $newdata = array( 
-                        
                         'store' => $stores
                     );
                     $response = ['status' => 200, 'message' => 'success', 'description' => 'There is states list.', 'data'=>$newdata];
-                
             } else {
-            
-
                     $response = ['status' => 200, 'message' => 'error', 'description' => 'There is some error'];
-                }
-
-                    
+            }                    
             $this->response($response, REST_Controller::HTTP_OK);
-            exit();
-            
+            exit();            
         }
     }
 

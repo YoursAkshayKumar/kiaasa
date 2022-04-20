@@ -70,6 +70,7 @@ $route['v1/getstate'] = 'api/app/Admin/state/getState';
 
 // ORDER
 $route['v1/getorder'] = 'api/app/Admin/order/getOrder';
+$route['v1/createorder'] = 'api/app/Admin/order/createOrder';
 
 //USER
 $route['v1/users'] = 'auth/auth/users';
