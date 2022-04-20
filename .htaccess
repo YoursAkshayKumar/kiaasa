@@ -10,7 +10,7 @@
     RewriteRule ^(.*)$ index.php/$1 [L]
     
     RewriteCond %{HTTPS} !=on
-    RewriteRule .* https://ekiaasa.revopions.com%{REQUEST_URI} [R,L]
+    RewriteRule .* https://kiaasa.revopions.com%{REQUEST_URI} [R,L]
     
 
 </IfModule>
