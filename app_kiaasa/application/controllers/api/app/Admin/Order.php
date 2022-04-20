@@ -90,7 +90,7 @@ class Order extends REST_Controller
                     if($isItemsInserted){
                         $this->response(['status' => 200, 'messsage' => 'success', 'description' => 'Order created successfully'], REST_Controller::HTTP_BAD_REQUEST);                        
                     } else {
-                        $this->response(['status' => 200, 'messsage' => 'error', 'description' => 'Something went wrong'], REST_Controller::HTTP_BAD_REQUEST);                        
+                        $this->response(['status' => 200, 'messsage' => 'error', 'description' => 'Something went wrong1'], REST_Controller::HTTP_BAD_REQUEST);                        
                     }
                 } else {
                     $this->response(['status' => 200, 'messsage' => 'error', 'description' => 'Something went wrong'], REST_Controller::HTTP_BAD_REQUEST);

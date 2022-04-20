@@ -92,9 +92,9 @@ if(ENVIRONMENT !== 'production') {
     ];
 } else {
     $db = [
-		'username' => 'ekiaasar_kiaasa',
+		'username' => 'revopion_kiaasa',
 		'password' => 'kiaasa@2021#',
-		'database' => 'ekiaasar_kiaasa',
+		'database' => 'revopion_kiaasa',
 		'hostname' => 'localhost'
     ];
 
