@@ -61,10 +61,10 @@ class Order extends REST_Controller
     }
 
     public function createOrder_post(){
-        // $this->response(['status' => 400, 'messsage' => 'success', 'description' => 'ok.'], REST_Controller::HTTP_OK);
-        $response = ['status' => 200, 'message' => 'error', 'description' => 'order created'];
-        $json = json_encode($response); 
-        echo ($json);
+        $this->response(['status' => 400, 'messsage' => 'success', 'description' => 'ok.'], REST_Controller::HTTP_OK);
+        // $response = ['status' => 200, 'message' => 'error', 'description' => 'order created'];
+        // $json = json_encode($response); 
+        // echo ($json);
             exit();
     }
 
