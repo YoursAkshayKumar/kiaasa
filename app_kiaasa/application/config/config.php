@@ -528,7 +528,7 @@ $config['proxy_ips'] = '';
 
 $config['auth_key']=array('11','12','13','14');
 
-
+// $config['rest_default_format'] = 'json';
 
 $config['module']=array('dashboard','videos','subscription plan','student','orders','settings');
 $config['sub_module']=array(

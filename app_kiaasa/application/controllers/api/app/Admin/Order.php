@@ -60,14 +60,17 @@ class Order extends REST_Controller
         }
     }
 
-    // public function createOrder_post(){
-    //     $this->response(['status' => 400, 'messsage' => 'success', 'description' => 'ok.'], REST_Controller::HTTP_OK);
-    //         exit();
-    // }
+    public function createOrder_post(){
+        // $this->response(['status' => 400, 'messsage' => 'success', 'description' => 'ok.'], REST_Controller::HTTP_OK);
+        $response = ['status' => 200, 'message' => 'error', 'description' => 'order created'];
+        $json = json_encode($response); 
+        echo ($json);
+            exit();
+    }
 
 
 
-    public function createOrder_post()
+    public function createOrder1_post()
     {
         $method = $this->_detect_method();
         if (!$method == 'POST') {
@@ -94,7 +97,9 @@ class Order extends REST_Controller
                 if($isInserted) {
                     $isItemsInserted = $this->order_m->create_order_item();
                     if($isItemsInserted){
-                        $this->response(['status' => 200, 'messsage' => 'success', 'description' => 'Order created successfully'], REST_Controller::HTTP_BAD_REQUEST);                        
+                        $response = ['status' => 200, 'message' => 'success', 'description' => "Order created successfully"];
+                        // $this->response(['status' => 200, 'messsage' => 'success', 'description' => 'Order created successfully'], REST_Controller::HTTP_OK);   
+                        echo '$response';                     
                     } else {
                         $this->response(['status' => 200, 'messsage' => 'error', 'description' => 'Something went wrong1'], REST_Controller::HTTP_BAD_REQUEST);                        
                     }
