@@ -60,8 +60,14 @@ class Order extends REST_Controller
         }
     }
 
+    public function createOrder_post(){
+        $this->response(['status' => 400, 'messsage' => 'success', 'description' => 'ok.'], REST_Controller::HTTP_OK);
+            exit();
+    }
 
-    public function createOrder_post()
+
+
+    public function createOrder1_post()
     {
         $method = $this->_detect_method();
         if (!$method == 'POST') {
